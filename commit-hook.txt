@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# post-commit hook configured to run security/vulnerability reporting whenever
+# a change to a python file is made and committed.
+
+echo "-----------------------------------------------------------------------"
+echo "Scanning and reporting all python CVEs in project"
+bandit -r ./ -f csv -o ./vulnerabilities.csv
+echo "Scanning/Reporting completed. Results available in vulnerabilities.csv"
+echo "-----------------------------------------------------------------------"
