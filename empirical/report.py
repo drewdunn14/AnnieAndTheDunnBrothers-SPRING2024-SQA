@@ -10,7 +10,7 @@ import time
 import datetime 
 import statistics
 
-# Test for pre-commit hook reporting python vulnerabilities
+# Test for pre-commit hook reporting python vulnerabilities 
 
 def giveTimeStamp():
   tsObj = time.time()
