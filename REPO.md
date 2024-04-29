@@ -10,6 +10,12 @@
   - We created a fuzz.py file which picked out 5 functions in the existing repository to pass large amounts of bad input into them. We collected the error messages that fuzzing threw which we could use to make the functions stronger.
 - _Part C_
   - We implemented simple logging into 5 functions in the existing repository. These logs would output the parameters given to these functions as well as the data sources accessed within. This is important to ensure the functions are being used in the way that they are intended and not being attacked.
+
+     - *Methods changed:*
+          - report.py: reportDensity
+          - frequency.py: reportEventDensity, reportProportion
+          - dataset.stats.py: getFileLength, getAllFileCount
+    
 - _Part D_
   - To integrate Continuous Integration, we followed the steps similar to our CI Workshop by creating a .yaml file that implements the Codacy Analysis CLI in our project as a GitHub action. This file can be found in our .github/workflows directory. Once pushed to the branch, it will run the .yaml script on every push going forward.
 
