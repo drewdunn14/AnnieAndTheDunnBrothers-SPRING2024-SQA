@@ -42,6 +42,13 @@ def reportProp( res_file ):
     
     
 def reportDensity( res_file ):
+    logger = myLogger.createLoggerObj()
+    iris = datasets.load_iris()
+    '''
+    Inserted logging statement because data can be poisoned. 
+    '''
+    logger.info('Generic information: getting results: %s', str(iris))
+  
     res_df = pd.read_csv(res_file) 
     fields2explore = ['DATA_LOAD_COUNT', 'MODEL_LOAD_COUNT', 'DATA_DOWNLOAD_COUNT',	'MODEL_LABEL_COUNT', 'MODEL_OUTPUT_COUNT',	
                       'DATA_PIPELINE_COUNT', 'ENVIRONMENT_COUNT', 'STATE_OBSERVE_COUNT',  'TOTAL_EVENT_COUNT'
