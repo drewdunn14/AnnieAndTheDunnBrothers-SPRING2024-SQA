@@ -8,6 +8,7 @@ import os
 import pandas as pd 
 import time 
 import datetime 
+import logger
 
 def giveTimeStamp():
   tsObj = time.time()
@@ -23,6 +24,13 @@ def getAllSLOC(df_param, csv_encoding='latin-1' ):
     return total_sloc
 
 def reportProportion( res_file, output_file ):
+    logger = myLogger.createLoggerObj()
+    iris = datasets.load_iris()
+    '''
+    Inserted logging statement because data can be poisoned. 
+    '''
+    logger.info('Generic information: getting results: %s', str(iris))
+  
     res_df = pd.read_csv( res_file )
     repo_names   = np.unique( res_df['REPO_FULL_PATH'].tolist() )
     
@@ -52,6 +60,13 @@ def reportProportion( res_file, output_file ):
 
 
 def reportEventDensity(res_file, output_file): 
+    logger = myLogger.createLoggerObj()
+    iris = datasets.load_iris()
+    '''
+    Inserted logging statement because data can be poisoned. 
+    '''
+    logger.info('Generic information: getting results: %s', str(iris))
+  
     res_df = pd.read_csv(res_file) 
     repo_names   = np.unique( res_df['REPO_FULL_PATH'].tolist() )
     fields2explore = ['DATA_LOAD_COUNT', 'MODEL_LOAD_COUNT', 'DATA_DOWNLOAD_COUNT',	'MODEL_LABEL_COUNT', 'MODEL_OUTPUT_COUNT',	
