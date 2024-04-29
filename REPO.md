@@ -1,5 +1,5 @@
 # **Final Report - Annie and the Dunn Brothers**
-### **COMP 6710 - Software Quality Assurance**
+### **COMP 5710 - Software Quality Assurance**
 
 #### **What We Did**
 - _Setup_
