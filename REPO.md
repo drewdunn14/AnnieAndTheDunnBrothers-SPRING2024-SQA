@@ -6,8 +6,21 @@
   - We started by first downloading the zip file and creating a new repository in GitHub with the file contents. We then each cloned the repository from GitHub to our local machine and divided up the work equally among us.
 - _Part A_
   - We implemented a git hook in our project that runs vulnerability analysis on each commit. The results of this vulnerabilty analysis can be found in vulnerabilities.csv. Our analysis reported 12 vulnerabilities all with low severity.
+  - We utilized 'bandit' as our vulnerability analysis tool, as it is widely trusted throughout the industry and also has great docs. This allowed us to efficiently create the necessary logic for our commit hook.
+  - The logic used to create the hook is available in 'commit-hook.txt' and the output of the hook is available in the 'vulnerabilities.csv' file in this repo.
 - _Part B_
-  - We created a fuzz.py file which picked out 5 functions in the existing repository to pass large amounts of bad input into them. We collected the error messages that fuzzing threw which we could use to make the functions stronger.
+  - We created a fuzz.py file which picked out 5 functions in the existing repository to pass large amounts of bad input into them. We collected the error messages that fuzzing threw which we could use to make the functions stronger. Additionally the fuzz.py file is automatically executed as a github action upon any push to the repo. This allows for push-by-push analysis of how each of the chosen methods responds to the fuzzing.
+      - *List of the five methods that were fuzzed:*
+        - 'dumpContentIntoFile' from 'mining.py'
+        - 'deleteRepo' from 'mining.py'
+        - 'makeChunks' from 'mining.py'
+        - 'cloneRepo' from 'mining.py'
+        - 'getDevEmailForCommit' from 'mining.py'
+
+  - Below are the relevant screenshots for the fuzzing of each of the five methods when executed from the github actions tab.
+  ![Logs from fuzzing methods 1 & 2](fuzzing1&2.png)
+  ![Logs from fuzzing methods 3,4, & 5](fuzzing345.png)
+
 - _Part C_
   - We implemented simple logging into 5 functions in the existing repository. These logs would output the parameters given to these functions as well as the data sources accessed within. This is important to ensure the functions are being used in the way that they are intended and not being attacked.
 
