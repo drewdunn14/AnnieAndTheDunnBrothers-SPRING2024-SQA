@@ -1,7 +1,6 @@
 name: py
 
-on:
-  schedule: ["push"]
+on: ["push"]
 
 jobs:
   build:
