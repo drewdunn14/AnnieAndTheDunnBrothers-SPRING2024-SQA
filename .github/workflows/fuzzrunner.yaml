@@ -20,4 +20,5 @@ jobs:
             #my_other_branch
       - name: execute py script # run file
         run: |
+          pip install pandas
           python3 fuzz.py
